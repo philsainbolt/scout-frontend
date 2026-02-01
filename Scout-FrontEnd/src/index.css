@@ -1,43 +1,192 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.main-container{
-    background-color: rgb(36,99,73);
+body {
+    padding: 0 60px;
+}
+
+/* NAVBAR */
+
+.navbar-section {
+    background-color: rgb(230, 251, 230);
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10%;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.about-us, .employer-login {
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    background-color: rgb(246, 166, 14);
+    color: white;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 3px 3px 5px black;
+    width: 100px;
+}
+
+.employer-login {
+    width: 150px;
+}
+
+/* MAIN CONTAINER */
+
+.main-container {
+    background-color: rgb(36, 99, 73);
     display: flex;
     justify-content: center;
+    align-items: center;
     border-radius: 20px;
-    padding-bottom: 20px;
+    height: 200px;
+    margin-top: 10px;
+    padding: 0 15%;
 }
 
-.hero-search{
+.hero-search {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
+    width: 90%;
+    justify-content: space-between;
 }
 
-h2{
+h2 {
     color: white;
+    margin-bottom: 10px;
+}
+
+.what-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.where-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxes {
+    display: flex;
+    align-items: center;
 }
 
 input {
     border: none;
     border-radius: 5px;
     height: 30px;
+    width: 150px;
+    margin-right: 10px;
+    padding: 0 10px;
+    flex-shrink: 1;
 }
 
-.search-btn{
-    border: none;
-}
-
-.boxes{
-    display: flex;
-    gap: 100px;
-}
-
-.search-btn{
+.search-btn {
     border: none;
     border-radius: 5px;
     height: 30px;
     background-color: rgb(246, 166, 14);
     color: white;
     width: 100px;
-
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 3px 3px 5px black;
+    flex-shrink: 0;
 }
 
+.search-btn:hover {
+    background-color: rgb(255, 254, 246);
+    color: rgb(246, 166, 14);
+    transition: 0.4s;
+}
+
+.search-btn:active {
+    transform: scale(0.9);
+}
+
+/* CLASSIFICATION DROPDOWN */
+
+.classification-wrapper {
+    position: relative;
+}
+
+.classification-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    padding: 0 12px;
+    width: 150px;
+    cursor: pointer;
+    color: #1a2744;
+    font-size: 14px;
+    user-select: none;
+    flex-shrink: 1;
+}
+
+.classification-btn .arrow {
+    font-size: 12px;
+    transition: transform 0.9s;
+}
+
+.classification-btn .arrow.open {
+    transform: rotate(180deg);
+}
+
+.classification-dropdown {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    width: 340px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 10;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    color: #1a2744;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f0f4f8;
+}
+
+.dropdown-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-right: 12px;
+    border-radius: 5px;
+    accent-color: #1a2744;
+    cursor: pointer;
+}
+
+.item-name {
+    flex: 1;
+    font-size: 15px;
+}
+
+.JobCard{
+    border: 2px solid black;
+}

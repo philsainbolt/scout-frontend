@@ -1,7 +1,18 @@
+import JobListContainer from "./components/JobListContainer";
 import MainContainer from "./components/MainContainer";
+import Navbar from "./components/Navbar";
 
 function App() {
-  return <MainContainer />;
+  
+  return(
+   <>
+  <Navbar />  
+  <MainContainer />
+  <JobListContainer/>
+  </>
+
+  )  
+  
 }
 
 export default App;
