@@ -2,10 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+} */
+
+* body {
+    padding: 0 60px;
 }
 
-body {
-    padding: 0 60px;
+.image{
+    display: flex;
+    justify-content: center;
+}
+
+img{
+   width: 150px;
 }
 
 /* NAVBAR */
@@ -16,9 +25,11 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10%;
     border-radius: 20px;
     margin-top: 10px;
+    padding: 40px;
+    width: 100%;
+    gap: 10px;
 }
 
 .about-us, .employer-login {
@@ -29,12 +40,10 @@ body {
     color: white;
     cursor: pointer;
     font-weight: 900;
+    font-size: 15px;
     box-shadow: 3px 3px 5px black;
-    width: 100px;
-}
-
-.employer-login {
-    width: 150px;
+    width: 200px;
+    height: 50px
 }
 
 /* MAIN CONTAINER */
@@ -43,18 +52,20 @@ body {
     background-color: rgb(36, 99, 73);
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     border-radius: 20px;
     height: 200px;
     margin-top: 10px;
-    padding: 0 15%;
 }
 
 .hero-search {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    width: 90%;
     justify-content: space-between;
+    width: 100%;
+    padding: 40px;
 }
 
 h2 {
@@ -80,11 +91,10 @@ h2 {
 input {
     border: none;
     border-radius: 5px;
-    height: 30px;
-    width: 150px;
+    height: 50px;
+    width: 200px;
     margin-right: 10px;
     padding: 0 10px;
-    flex-shrink: 1;
 }
 
 .search-btn {
@@ -93,11 +103,12 @@ input {
     height: 30px;
     background-color: rgb(246, 166, 14);
     color: white;
-    width: 100px;
     cursor: pointer;
     font-weight: 900;
+    font-size: 15px;
     box-shadow: 3px 3px 5px black;
-    flex-shrink: 0;
+    width: 200px;
+    height: 50px
 }
 
 .search-btn:hover {
@@ -117,20 +128,21 @@ input {
 }
 
 .classification-btn {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    padding: 0 12px;
-    width: 150px;
-    cursor: pointer;
-    color: #1a2744;
-    font-size: 14px;
-    user-select: none;
-    flex-shrink: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  padding: 0 12px;
+  width: 200px;
+  cursor: pointer;
+  color: #1a2744;
+  font-size: 14px;
+  user-select: none;
+  flex-shrink: 1;
+  margin-right: 10px;
 }
 
 .classification-btn .arrow {
@@ -172,7 +184,7 @@ input {
     background-color: #f0f4f8;
 }
 
-.dropdown-item input[type="checkbox"] {
+.dropdown-item input{
     width: 20px;
     height: 20px;
     min-width: 20px;
@@ -189,4 +201,11 @@ input {
 
 .JobCard{
     border: 2px solid black;
+}
+
+.cards{
+    border: 2px solid grey;
+    border-radius: 30px;
+    margin: 40px 60px;
+    padding: 30px;
 }
