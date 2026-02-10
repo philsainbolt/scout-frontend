@@ -1,5 +1,5 @@
 import React from 'react'
-import EmployerJobCard from '../EmployerJobCard'
+import EmployerJobCard from './EmployerJobCard'
 
 const EmployerJobList = () => {
 
