@@ -55,7 +55,7 @@ function ClassificationDropdown() {
 function MainContainer() {
   return (
       <div className="main-container">
-        <div className="hero-search">
+        {/* <div className="hero-search"> */}
 
           <div className="what-group">
             <h2>What</h2>
@@ -76,7 +76,7 @@ function MainContainer() {
                 
           </div>
 
-          </div>
+          {/* </div> */}
       </div>
   );
 }

@@ -36,46 +36,42 @@ img{
     border: none;
     border-radius: 5px;
     height: 30px;
-    background-color: rgb(246, 166, 14);
-    color: white;
+    background: none;
+    background-color: rgb(201, 184, 207);
+    color: rgb(84, 27, 62);
     cursor: pointer;
     font-weight: 900;
     font-size: 15px;
     box-shadow: 3px 3px 5px black;
     width: 200px;
-    height: 50px
+    height: 50px;
+    
 }
 
 /* MAIN CONTAINER */
 
 .main-container {
-    background-color: rgb(36, 99, 73);
+    background-color: rgb(177, 232, 159);
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
     flex-wrap: wrap;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 100px;
     height: 200px;
     margin-top: 10px;
 }
-
-.hero-search {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 40px;
-}
+    
+    
 
 h2 {
-    color: white;
+    color: rgb(84, 27, 62);
     margin-bottom: 10px;
 }
 
 .what-group {
     display: flex;
     flex-direction: column;
+    backdrop-filter: blue(20px);
 }
 
 .where-group {
@@ -90,7 +86,7 @@ h2 {
 
 input {
     border: none;
-    border-radius: 5px;
+    border-radius: 100px;
     height: 50px;
     width: 200px;
     margin-right: 10px;
@@ -101,11 +97,11 @@ input {
     border: none;
     border-radius: 5px;
     height: 30px;
-    background-color: rgb(246, 166, 14);
-    color: white;
+    background-color: rgb(200, 186, 206);
+    color: rgb(84, 27, 62);
     cursor: pointer;
     font-weight: 900;
-    font-size: 15px;
+    font-size: 16px;
     box-shadow: 3px 3px 5px black;
     width: 200px;
     height: 50px
@@ -113,7 +109,7 @@ input {
 
 .search-btn:hover {
     background-color: rgb(255, 254, 246);
-    color: rgb(246, 166, 14);
+    color: rgb(84, 27, 62);
     transition: 0.4s;
 }
 
@@ -209,4 +205,27 @@ input {
     margin: 40px 60px;
     padding: 30px;
     box-shadow: 1px 1px 90px rgb(247, 255, 233);
+}
+
+form{
+    border: 10px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1000px;
+}
+
+.form-input{
+    border: 2px solid green;
+}
+
+.employer-portal{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employer-portal > input {
+    border: 1px solid grey;
 }
