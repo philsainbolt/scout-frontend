@@ -5,12 +5,12 @@ import EmployerJobList from './EmployerJobList'
 const EmployerPortal = () => {
   
   const addJob = () =>{
-    fetch("http://localhost:3000/api/jobs",{
+    fetch(`${import.meta.env.VITE_API_URL}/api/jobs`,{
       method: "POST",
       headers: {
-        "Content-Type": "application/json", // Critical: Tells Node to parse the body
+        "Content-Type": "application/json",
       },
-      body: {id:"placeholder",jobTitle: "placeholder",classification: "placehoder", location: "placeholder"}
+      body: JSON.stringify({jobTitle: "placeholder",classification: "placeholder", location: "placeholder"})
     })
   }
   

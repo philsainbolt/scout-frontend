@@ -37,7 +37,7 @@ const JobListContainer = () => {
 
 useEffect(()=>{
   // by default, fetch sends the get request
-  fetch("http://localhost:3000/api/jobs")
+  fetch(`${import.meta.env.VITE_API_URL}/api/jobs`)
   .then((res)=> res.json())
   .then((data)=> setJobList(data))
 })
