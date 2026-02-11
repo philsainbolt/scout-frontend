@@ -1,7 +1,7 @@
 [build]
   base = "Scout-FrontEnd"
   command = "npm run build"
-  publish = "Scout-FrontEnd/dist"
+  publish = "dist"
 
 [[redirects]]
   from = "/*"
