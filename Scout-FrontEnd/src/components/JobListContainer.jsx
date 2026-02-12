@@ -2,7 +2,9 @@ import React from 'react'
 import JobCard from './JobCard'
 import { useState, useEffect } from 'react'
 
-const JobListContainer = () => {
+const API_URL = import.meta.env.VITE_API_URL;
+
+const JobListContainer = ({ searchParams }) => {
 
 
   const [jobList, setJobList] = useState([]);
@@ -36,11 +38,15 @@ const JobListContainer = () => {
 // }
 
 useEffect(()=>{
-  // by default, fetch sends the get request
-  fetch(`${import.meta.env.VITE_API_URL}/api/jobs`)
+  const params = new URLSearchParams();
+  if (searchParams?.jobTitle) params.append("jobTitle", searchParams.jobTitle);
+  if (searchParams?.classification) params.append("classification", searchParams.classification);
+  if (searchParams?.location) params.append("location", searchParams.location);
+
+  fetch(`${API_URL}/api/jobs?${params.toString()}`)
   .then((res)=> res.json())
   .then((data)=> setJobList(data))
-})
+}, [searchParams])
 
   return (
     <div>

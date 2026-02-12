@@ -71,7 +71,7 @@ h2 {
 .what-group {
     display: flex;
     flex-direction: column;
-    backdrop-filter: blue(20px);
+    backdrop-filter: blur(20px);
 }
 
 .where-group {

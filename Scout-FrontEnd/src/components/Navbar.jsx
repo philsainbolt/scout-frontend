@@ -4,7 +4,7 @@ function Navbar() {
   return (
 
     <div className="navbar-section">
-      <button className="about-us">About Us</button>
+      <Link to="/aboutus"><button className="about-us">About Us</button></Link>
 
       <Link to="/employerlogin"><button className="employer-login">Employer Login</button></Link>
       

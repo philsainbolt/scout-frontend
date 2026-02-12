@@ -1,41 +1,99 @@
-import React from 'react'
-import EmployerJobCard from './EmployerJobCard'
+import React, { useState, useEffect } from 'react'
 import EmployerJobList from './EmployerJobList'
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 const EmployerPortal = () => {
-  
-  const addJob = () =>{
-    fetch(`${import.meta.env.VITE_API_URL}/api/jobs`,{
+  const [jobTitle, setJobTitle] = useState("");
+  const [classification, setClassification] = useState("");
+  const [location, setLocation] = useState("");
+  const [jobList, setJobList] = useState([]);
+
+  const fetchJobs = () => {
+    fetch(`${API_URL}/api/jobs`)
+      .then((res) => res.json())
+      .then((data) => setJobList(data));
+  };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  const addJob = () => {
+    if (!jobTitle || !classification || !location) return;
+
+    fetch(`${API_URL}/api/jobs`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({jobTitle: "placeholder",classification: "placeholder", location: "placeholder"})
+      body: JSON.stringify({ jobTitle, classification, location })
     })
-  }
-  
+      .then((res) => res.json())
+      .then(() => {
+        setJobTitle("");
+        setClassification("");
+        setLocation("");
+        fetchJobs();
+      });
+  };
+
+  const deleteJob = (id) => {
+    fetch(`${API_URL}/api/jobs/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => fetchJobs());
+  };
+
+  const updateJob = (id, updatedFields) => {
+    fetch(`${API_URL}/api/jobs/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedFields)
+    })
+      .then((res) => res.json())
+      .then(() => fetchJobs());
+  };
+
   return (
     <>
-    <div className="employer-portal" >
-      
-      <h3>Job Title</h3>
-      <input id="" placeholder="Enter your job title here"/>
+      <div className="employer-portal">
+        <h3>Job Title</h3>
+        <input
+          placeholder="Enter your job title here"
+          value={jobTitle}
+          onChange={(e) => setJobTitle(e.target.value)}
+        />
 
+        <h3>Classification</h3>
+        <input
+          placeholder="Enter the classification here"
+          value={classification}
+          onChange={(e) => setClassification(e.target.value)}
+        />
 
-      <h3>Classification</h3>
-      <input id="" placeholder="Enter your job title here"/>
+        <h3>Location</h3>
+        <input
+          placeholder="Enter the location here"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
 
-      <h3>Location</h3>
-      <input id="" placeholder="Enter your job title here"/> 
+        <button onClick={addJob}>Add the Job</button>
+      </div>
 
-      <button>Add the Job</button>
-    </div>
-    
-    <div><EmployerJobList/></div>
-    
-
+      <div>
+        <EmployerJobList
+          jobList={jobList}
+          onDelete={deleteJob}
+          onUpdate={updateJob}
+        />
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default EmployerPortal
+export default EmployerPortal;

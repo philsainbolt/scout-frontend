@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const classifications = [
   { name: "Accounting" },
@@ -10,9 +10,19 @@ const classifications = [
   { name: "Healthcare & Medical" },
 ];
 
-function ClassificationDropdown() {
+function ClassificationDropdown({ selected, setSelected }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState([]);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const toggleItem = (name) => {
     setSelected((prev) =>
@@ -28,7 +38,7 @@ function ClassificationDropdown() {
       : `${selected.length} classifications`;
 
   return (
-    <div className="classification-wrapper">
+    <div className="classification-wrapper" ref={wrapperRef}>
       <div className="classification-btn" onClick={() => setIsOpen(!isOpen)}>
         <span>{label}</span>
         <span className={`arrow ${isOpen ? "open" : ""}`}>&#8593;</span>
@@ -52,7 +62,19 @@ function ClassificationDropdown() {
   );
 }
 
-function MainContainer() {
+function MainContainer({ onSearch }) {
+  const [keyword, setKeyword] = useState("");
+  const [selectedClassifications, setSelectedClassifications] = useState([]);
+  const [location, setLocation] = useState("");
+
+  const handleSearch = () => {
+    onSearch({
+      jobTitle: keyword,
+      classification: selectedClassifications.join(","),
+      location: location,
+    });
+  };
+
   return (
       <div className="main-container">
         {/* <div className="hero-search"> */}
@@ -61,8 +83,8 @@ function MainContainer() {
             <h2>What</h2>
 
               <div className="boxes">
-              <input placeholder="Keywords"></input>
-              <ClassificationDropdown />
+              <input placeholder="Keywords" value={keyword} onChange={(e) => setKeyword(e.target.value)}></input>
+              <ClassificationDropdown selected={selectedClassifications} setSelected={setSelectedClassifications} />
               </div>
               
             </div>
@@ -70,8 +92,8 @@ function MainContainer() {
           <div className="where-group">
             <h2>Where</h2>
               <div className="boxes">
-                <input placeholder="Enter the city or region"></input> 
-              <button className="search-btn">Scout  🔍 </button>
+                <input placeholder="Enter the city or region" value={location} onChange={(e) => setLocation(e.target.value)}></input>
+              <button className="search-btn" onClick={handleSearch}>Scout  🔍 </button>
               </div>
                 
           </div>
