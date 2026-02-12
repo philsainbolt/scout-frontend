@@ -46,7 +46,7 @@ useEffect(()=>{
   fetch(`${API_URL}/api/jobs?${params.toString()}`)
   .then((res)=> res.json())
   .then((data)=> setJobList(data))
-}, [searchParams])
+}, [searchParams?.jobTitle, searchParams?.classification, searchParams?.location])
 
   return (
     <div>
