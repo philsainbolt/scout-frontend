@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    padding: 0 60px;
-}
-
 .image{
     display: flex;
     justify-content: center;
@@ -32,22 +28,6 @@ img{
     gap: 10px;
 }
 
-.about-us, .employer-login {
-    border: none;
-    border-radius: 5px;
-    height: 30px;
-    background: none;
-    background-color: rgb(201, 184, 207);
-    color: rgb(84, 27, 62);
-    cursor: pointer;
-    font-weight: 900;
-    font-size: 15px;
-    box-shadow: 3px 3px 5px black;
-    width: 200px;
-    height: 50px;
-    
-}
-
 /* MAIN CONTAINER */
 
 .main-container {
@@ -59,9 +39,7 @@ img{
     border-radius: 100px;
     height: 200px;
     margin-top: 10px;
-}
-    
-    
+}    
 
 h2 {
     color: rgb(84, 27, 62);
@@ -93,31 +71,54 @@ input {
     padding: 0 10px;
 }
 
-.search-btn {
+/* BUTTONS */
+.about-us, 
+.employer-login-btn, 
+.sign-in-button, 
+.sign-up-button, 
+.search-btn, 
+.add-job-btn,
+.update-btn,
+.delete-btn {
     border: none;
     border-radius: 5px;
     height: 30px;
-    background-color: rgb(200, 186, 206);
+    background: none;
+    background-color: rgb(201, 184, 207);
     color: rgb(84, 27, 62);
     cursor: pointer;
     font-weight: 900;
-    font-size: 16px;
+    font-size: 15px;
     box-shadow: 3px 3px 5px black;
     width: 200px;
-    height: 50px
+    height: 50px;
+    
 }
-
-.search-btn:hover {
+.about-us:hover, 
+.employer-login-btn:hover, 
+.sign-in-button:hover,
+.sign-up-button:hover,
+.search-btn:hover,
+.add-job-btn:hover,
+.update-btn:hover,
+.delete-btn:hover {
     background-color: rgb(255, 254, 246);
     color: rgb(84, 27, 62);
     transition: 0.4s;
 }
 
-.search-btn:active {
+.search-btn:active, 
+.sign-in-button:active, 
+.employer-login-btn:active,
+.add-job-btn:active,
+.update-btn:active,
+.delete-btn:active {
     transform: scale(0.9);
 }
 
-/* CLASSIFICATION DROPDOWN */
+.delete-btn,.update-btn{
+    margin: 10px;
+}
 
 .classification-wrapper {
     position: relative;
@@ -207,25 +208,54 @@ input {
     box-shadow: 1px 1px 90px rgb(247, 255, 233);
 }
 
-form{
-    border: 10px solid black;
+.Employer-Login-Page {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    height: 1000px;
+    height: 80vh;
+    flex-direction: column;
+    background-color: rgb(247, 255, 233);
+    color: rgb(84, 27, 62);
+}
+
+.Employer-Login-Page>h3{
+    font-size: 50px;
 }
 
 .form-input{
-    border: 2px solid green;
+    border: 3px solid green;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: rgb(177, 232, 159);
 }
+
+.form-input>label{
+    font-size: 25px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Employer Portal */
 
 .employer-portal{
-    border: 2px solid black;
+    border-radius: 30px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-around;
+    margin-top: 50px;
 }
 
-.employer-portal > input {
-    border: 1px solid grey;
+.employer-portal > input{
+    border: 2px solid grey;
+    width: 300px;
+    text-align: center;
 }
+

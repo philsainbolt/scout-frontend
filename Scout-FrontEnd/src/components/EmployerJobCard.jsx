@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
+=======
+import React from "react";
+>>>>>>> f19fe3c (Completed Project)
 
 const EmployerJobCard = ({ id, jobTitle, classification, location, onDelete, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -46,34 +50,46 @@ const EmployerJobCard = ({ id, jobTitle, classification, location, onDelete, onU
       <button onClick={() => onDelete(id)}>Delete</button>
 =======
 const EmployerJobCard = (props) => {
-  
-  
-    const deleteJob = () =>{
-    
-    fetch(`${import.meta.env.VITE_API_URL}/api/jobs/${props.id}`,{
-      method: "DELETE"
-    })
+  const deleteJob = async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/jobs/${props.id}`, {
+        method: "DELETE",
+      });
 
-    // props.refresh();
-  }
-  
-    const updateJob = () => {
+      if(response.ok){
+        props.refresh();
+      }
+      
+    } catch (err) {
+      console.error("Detailed Error:" + err);
+    }
+  };
 
-      const updatedData = {
+  const updateJob = async() => {
+    try{
+
+    const updatedData = {
       jobTitle: prompt("Update title"),
       classification: prompt("Update classification"),
-      location: prompt("Update location")
-  };
-      fetch(`${import.meta.env.VITE_API_URL}/api/jobs/${props.id}`,{
-        method: "PUT",
-        headers: {
-        "Content-Type": "application/json" // <--- MANDATORY
-      },
-        body: JSON.stringify({jobTitle: updatedData.jobTitle, classification: updatedData.classification, location: updatedData.location})
-      })
+      location: prompt("Update location"),
+    };
 
-      // props.refresh();
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/api/jobs/${props.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json", // <--- MANDATORY
+      },
+      body: JSON.stringify({
+        jobTitle: updatedData.jobTitle,
+        classification: updatedData.classification,
+        location: updatedData.location,
+      }),
+    });
+
+    if(response.ok){
+    props.refresh();   
     }
+<<<<<<< HEAD
     
   return (
     <div className='cards'>
@@ -88,5 +104,34 @@ const EmployerJobCard = (props) => {
     </div>
   );
 };
+=======
+>>>>>>> f19fe3c (Completed Project)
 
-export default EmployerJobCard
+   
+    } catch(err){
+      console.err("Detaied Error: "+err)
+    }
+  }; 
+
+  return (
+    <div className="cards">
+      <h3>
+        ID:<span>{props.id}</span>
+      </h3>
+
+      <h3>
+        Job Title: <span>{props.jobTitle}</span>{" "}
+      </h3>
+      <h3>Classification: {props.classification} </h3>
+      <h3>Location: {props.location} </h3>
+      <button onClick={updateJob} className="update-btn">
+        Update
+      </button>
+      <button onClick={deleteJob} className="delete-btn">
+        Delete
+      </button>
+    </div>
+  );
+};
+
+export default EmployerJobCard;

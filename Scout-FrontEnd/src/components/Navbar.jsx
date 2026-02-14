@@ -6,7 +6,7 @@ function Navbar() {
     <div className="navbar-section">
       <Link to="/aboutus"><button className="about-us">About Us</button></Link>
 
-      <Link to="/employerlogin"><button className="employer-login">Employer Login</button></Link>
+      <Link to="/employerlogin"><button className="employer-login-btn">Employer Login</button></Link>
       
     </div>
   );

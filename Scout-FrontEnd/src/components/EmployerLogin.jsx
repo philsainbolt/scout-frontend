@@ -3,35 +3,30 @@ import { Link } from "react-router-dom";
 
 const EmployerLogin = () => {
   return (
-    <div>
-      <form>
+    <div className="Employer-page">
+    <form className="Employer-Login-Page">
+        <h3> Employer Login</h3>
+
         <div className="form-input">
-          <h3> Employer Login</h3>
-          <div className="form-group">
-            <label>Email Address</label>
-            <input id="email" type="email" placeholder="you@company.com" />
-          </div>
+          <label>Email Address</label>
+          <input id="email" type="email" placeholder="you@company.com" />
 
-          <div>
-            <label htmlFor="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" />
-          </div>
+          <label htmlFor="password">Password</label>
+          <input id="password" type="password" placeholder="••••••••" />
 
-          <div>
-            <Link to="/employerportal">
-              <button type="submit">Sign In</button>
-            </Link>
-          </div>
+          <Link to="/employerportal" >
+            <button type="submit" className="sign-in-button">Sign In</button>
+          </Link>
 
-          <div>
-            <p>Don't have an account?</p>
-            <Link to="/employerregistration">
-              <button>Sign Up</button>
-            </Link>
-          </div>
+          <p>Don't have an account?</p>
+          <Link to="/employerregistration">
+            <button className="sign-up-button">Sign Up</button>
+          </Link>
         </div>
       </form>
-    </div>
+      </div>
+
+      
   );
 };
 
