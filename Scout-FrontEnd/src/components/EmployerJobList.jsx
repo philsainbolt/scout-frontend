@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState, useEffect } from 'react';
 import EmployerJobCard from './EmployerJobCard'
 
 const EmployerJobList = ({ jobList, onDelete, onUpdate }) => {

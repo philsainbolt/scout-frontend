@@ -7,35 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const JobListContainer = ({ searchParams }) => {
 
 
-  const [jobList, setJobList] = useState([]);
-//     const JobList = {
-//   "jobs": [
-//     {
-//       "id": 1,
-//       "jobTitle": "Front-End Engineer",
-//       "classification": "Engineering",
-//       "location": "Barcelona"
-//     },
-//     {
-//       "id": 2,
-//       "jobTitle": "Business Administrator",
-//       "classification": "Administration",
-//       "location": "Madrid"
-//     },
-//     {
-//       "id": 3,
-//       "jobTitle": "Surgeon",
-//       "classification": "Medical",
-//       "location": "Seville"
-//     },
-//     {
-//       "id": 4,
-//       "jobTitle": "GD",
-//       "classification": "Designing",
-//       "location": "Malaga"
-//     }
-//   ]
-// }
+const [jobList, setJobList] = useState([]);
 
 useEffect(()=>{
   const params = new URLSearchParams();

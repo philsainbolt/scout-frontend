@@ -35,6 +35,7 @@ const EmployerJobCard = ({ id, jobTitle, classification, location, onDelete, onU
     );
   }
 
+<<<<<<< HEAD
   return (
     <div className='cards'>
       <h3>ID: <span>{id}</span></h3>
@@ -43,6 +44,47 @@ const EmployerJobCard = ({ id, jobTitle, classification, location, onDelete, onU
       <h3>Location: {location}</h3>
       <button onClick={() => setIsEditing(true)}>Update</button>
       <button onClick={() => onDelete(id)}>Delete</button>
+=======
+const EmployerJobCard = (props) => {
+  
+  
+    const deleteJob = () =>{
+    
+    fetch(`${import.meta.env.VITE_API_URL}/api/jobs/${props.id}`,{
+      method: "DELETE"
+    })
+
+    // props.refresh();
+  }
+  
+    const updateJob = () => {
+
+      const updatedData = {
+      jobTitle: prompt("Update title"),
+      classification: prompt("Update classification"),
+      location: prompt("Update location")
+  };
+      fetch(`${import.meta.env.VITE_API_URL}/api/jobs/${props.id}`,{
+        method: "PUT",
+        headers: {
+        "Content-Type": "application/json" // <--- MANDATORY
+      },
+        body: JSON.stringify({jobTitle: updatedData.jobTitle, classification: updatedData.classification, location: updatedData.location})
+      })
+
+      // props.refresh();
+    }
+    
+  return (
+    <div className='cards'>
+            <h3>ID:<span>{props.id}</span></h3> 
+            
+            <h3>Job Title: <span>{props.jobTitle}</span> </h3>
+            <h3>Classification: {props.classification} </h3>
+            <h3>Location: {props.location} </h3>
+            <button onClick={updateJob}>Update</button>
+            <button onClick={deleteJob}>Delete</button>
+>>>>>>> 08ba099 (updated)
     </div>
   );
 };
